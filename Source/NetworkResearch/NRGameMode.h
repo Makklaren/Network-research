@@ -12,4 +12,11 @@ class ANRGameMode : public AGameMode
 
 public:
     ANRGameMode();
+
+protected:
+    int32 MaxNumPlayers = 2;
+    TArray<class APlayerController*> PlayerControllerList;
+
+    virtual bool ReadyToStartMatch_Implementation() override;
+    virtual void PostLogin(APlayerController* NewPlayer) override;
 };

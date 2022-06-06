@@ -10,3 +10,16 @@ ANRGameMode::ANRGameMode()
         DefaultPawnClass = PlayerPawnBPClass.Class;
     }*/
 }
+
+bool ANRGameMode::ReadyToStartMatch_Implementation()
+{
+    //ReadyToStartMatch();
+    
+    return MaxNumPlayers == NumPlayers;//Super::ReadyToStartMatch_Implementation();
+}
+
+void ANRGameMode::PostLogin(APlayerController* NewPlayer)
+{
+    Super::PostLogin(NewPlayer);
+    PlayerControllerList.Add(NewPlayer);
+}
